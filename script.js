@@ -1,11 +1,11 @@
 console.log("Mandando Oi para um amigo");
 
 function mandaMensagem(){
-    console.log("Tudo bem?")
-    console.log("Irei lhe enviar uma solicitação!")
-    console.log("Solicitação recebida!")
+    console.log("Tudo bem?");
+    console.log("Irei lhe enviar uma solicitação!");
+    console.log("Solicitação recebida!");
 }
 
-mandaMensagem();
+setTimeout(mandaMensagem, 5000);
 
-console.log("Tchau!")
+console.log("Tchau");
