@@ -5,6 +5,14 @@ async function buscaEndereco(cep){
         if(consultaCEPconvertida.erro){
             throw Error('CEP não existente!');
         }
+        var cidade     = document.getElementById('cidade');
+        var estado     = document.getElementById('estado');
+        var logradouro = document.getElementById('endereco');
+
+        cidade.value = consultaCEPconvertida.localidade;
+        logradouro.value = consultaCEPconvertida.logradouro;
+        estado.value = consultaCEPconvertida.uf;
+
         console.log(consultaCEPconvertida);
         return consultaCEPconvertida;
     } catch(erro) {
@@ -12,11 +20,7 @@ async function buscaEndereco(cep){
     }
 }
 
-let ceps = ['01001000','01001001'];
-let conjuntoCeps = ceps.map(valores => buscaEndereco(valores));
-console.log(conjuntoCeps);
 
-
-
-Promise.all(conjuntoCeps).then(respostas => console.log(respostas));
+var cep = document.getElementById('cep');
+cep.addEventListener("focusout", () => buscaEndereco(cep.value));
 
